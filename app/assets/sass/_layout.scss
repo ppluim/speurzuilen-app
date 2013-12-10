@@ -1,0 +1,30 @@
+.external-links {
+	background-color: darken($gray, 20%);
+	padding: $basePadding;
+	@include clearfix;
+	
+	a {
+		color: lighten($gray, 15%);
+
+		&:hover {
+			text-decoration: none;
+			color: lighten($gray, 20%)
+		}
+	}
+}
+
+.main-nav {
+	background: darken($gray, 30%);
+	padding: $basePadding;
+}
+
+.page-title {
+	margin: 0;
+	@include clearfix;
+
+	h1 {
+		color: $white;
+		margin: 0;
+		padding: $basePadding;
+	}
+}
