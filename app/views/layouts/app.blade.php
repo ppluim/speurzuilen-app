@@ -18,7 +18,7 @@
 			<nav class="main-nav">
 				<ul class="nav nav-pills nav-pills-justified">
 					<li>
-						<a href="#" class="main-nav__start">Home</a>
+						{{ link_to_route('start', 'Start', null, array('class'=>'main-nav__start')) }}
 					</li>
 					<li class="dropdown">
 						<a href="#" class="main-nav__navlist dropdown-toggle" data-toggle="dropdown">Spring naar zuil</a>
@@ -31,7 +31,7 @@
 						</ul>
 					</li>
 					<li>
-						<a href="#" class="main-nav__help">Help</a>
+						{{ link_to_route('help', 'Help', null, array('class'=>'main-nav__help')) }}
 					</li>
 				</ul>
 			</nav>
@@ -42,12 +42,6 @@
 
 		<section class="page-content">
 			<div class="container">
-
-				@if (Session::has('message'))
-					<div class="flash alert">
-						<p>{{ Session::get('message') }}</p>
-					</div>
-				@endif
 
 				@yield('main')
 

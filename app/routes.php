@@ -11,9 +11,11 @@
 |
 */
 
+Route::get('/', 'HomeController@getStart');
+Route::get('start', array('as'=>'start', 'uses'=>'HomeController@getStart'));
+Route::get('help', array('as'=>'help','uses'=>'HomeController@getHelp'));
 
 Route::resource('pages', 'PagesController');
-// Route::resource('pages.questions', 'QuestionsController');
 Route::resource('questions', 'QuestionsController');
 Route::resource('options', 'OptionsController');
 

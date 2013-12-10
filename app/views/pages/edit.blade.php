@@ -3,27 +3,13 @@
 @section('main')
 
 <h1>Edit Page</h1>
+
+@include('partials.pages_errors')
+
 {{ Form::model($page, array('method' => 'PATCH', 'route' => array('pages.update', $page->id))) }}
 	<ul>
-        <li>
-            {{ Form::label('title', 'Title:') }}
-            {{ Form::text('title') }}
-        </li>
-
-        <li>
-            {{ Form::label('color', 'Color:') }}
-            {{ Form::select('color', Page::$colors)}}
-        </li>
-
-        <li>
-            {{ Form::label('wander_tour_text', 'Wander_tour_text:') }}
-            {{ Form::textarea('wander_tour_text') }}
-        </li>
-
-        <li>
-            {{ Form::label('wander_main_text', 'Wander_main_text:') }}
-            {{ Form::textarea('wander_main_text') }}
-        </li>
+        
+        @include('partials.pages_form')
 
 		<li>
 			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
