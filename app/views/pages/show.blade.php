@@ -21,9 +21,15 @@
 	</div>
 </section>
 
-@if($page->getQuestionsAmount() > 0)
-	<section class="quiz">
-		<h2 class="quiz__header">Speurtocht</h2>
+
+<section class="quiz">
+	<h2 class="quiz__header">Speurtocht</h2>
+	
+	@if(Auth::check())
+		<p>{{ link_to_route('questions.create', 'Voeg een quizvraag toe', array('page_id'=>$page->id), array('class' => 'btn btn-default')) }}</p>
+	@endif
+
+	@if($page->getQuestionsAmount() > 0)
 		<p class='quiz_description'>{{ $question->description }}</p>
 		<div class="quiz__question">
 			<h3 class="quiz__title">{{{ $question->title }}}</h3>
@@ -32,12 +38,12 @@
 					<li>{{{ $option->title }}}</li>
 				@endforeach
 			</ol>
+			@if(Auth::check())
+				<p>{{ link_to_route('options.create', 'Add an option', array('page_id'=>$page->id), array('class' => 'btn btn-default')) }}</p>
+			@endif
 		</div>
+	@endif
 
-		@if(Auth::check())
-			<div class="alert alert-notice">logged in</div>
-		@endif
-	</section>
-@endif
+</section>
 
 @stop

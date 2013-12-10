@@ -12,7 +12,7 @@
         </li>
         <li>
             {{ Form::label('page_id', 'Page') }}
-            {{ Form::select('page_id', $pages) }}
+            {{ Form::select('page_id', $pages, $data['page_id']) }}
         </li>
     
         <li>

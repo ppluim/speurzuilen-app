@@ -33,15 +33,23 @@ class QuestionsController extends BaseController {
 	 */
 	public function create()
 	{
+		// Take the params from the request 
+		$data = Input::all();
+		// If it does not contain a 'page_id'
+		// set it to a default to prevent an exception in the view
+		if(!isset($data['page_id'])) $data['page_id'] = '1';
+
 		$pages = Page::all();
 		$selectPages = array();
 
 		foreach($pages as $page) {
 		    $selectPages[$page->id] = $page->title;
 		}
+
 		// return $pages;
 		return View::make('questions.create')
-			->with('pages', $selectPages);
+			->with('pages', $selectPages)
+			->with('data', $data);
 	}
 
 	/**
