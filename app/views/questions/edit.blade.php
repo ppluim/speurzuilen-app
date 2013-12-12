@@ -6,7 +6,7 @@
 
 {{ Form::model($question, array(
         'method' => 'PATCH', 
-        'route' => array('questions.update', $question->id), 
+        'route' => array('pages.questions.update', $question->page_id, $question->id), 
         'class' => 'form-horizontal',
         'role'  => 'form'
     ))   

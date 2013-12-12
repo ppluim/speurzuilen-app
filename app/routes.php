@@ -15,9 +15,10 @@ Route::get('/', 'HomeController@getStart');
 Route::get('start', array('as'=>'start', 'uses'=>'HomeController@getStart'));
 Route::get('help', array('as'=>'help','uses'=>'HomeController@getHelp'));
 
+Route::resource('pages.questions', 'QuestionsController');
 Route::resource('pages', 'PagesController');
-Route::resource('questions', 'QuestionsController');
-Route::resource('options', 'OptionsController');
+// Route::resource('pages.questions', 'QuestionsController');
+Route::resource('pages.questions.options', 'OptionsController');
 
 Route::get('login', 'UsersController@getLogin');
 Route::post('login', 'UsersController@postLogin');

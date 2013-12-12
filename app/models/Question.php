@@ -7,6 +7,8 @@ class Question extends Eloquent {
 		'title' => 'required',
 		'page_id' => 'required'
 	);
+
+	public static $errors;
 	
 	public function page()
 	{
@@ -16,5 +18,15 @@ class Question extends Eloquent {
 	public function options()
 	{
 	    return $this->hasMany('Option');
+	}
+
+	public function isValid($data)
+	{
+		$validation = Validator::make($data, static::$rules);
+
+		if( $validation->passes()) return true;
+
+		static::$errors = $validation->messages();
+		return false;
 	}
 }

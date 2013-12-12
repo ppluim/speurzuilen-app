@@ -30,7 +30,7 @@
 	<h2 class="quiz__header">Speurtocht</h2>
 	
 	@if(Auth::check())
-		<p>{{ link_to_route('questions.create', 'Voeg een quizvraag toe', array('page_id'=>$page->id), array('class' => 'btn btn-default')) }}</p>
+		<p>{{ link_to_route('pages.questions.create', 'Voeg een quizvraag toe', array('pages'=>$page->id), array('class' => 'btn btn-default')) }}</p>
 	@endif
 
 	@foreach($page->questions as $question)
@@ -42,9 +42,7 @@
 					<li>{{{ $option->title }}}</li>
 				@endforeach
 			</ol>
-			@if(Auth::check())
-				<p>{{ link_to_route('options.create', 'Add an option', array('page_id'=>$page->id), array('class' => 'btn btn-default')) }}</p>
-			@endif
+			
 		</div>
 	@endforeach
 

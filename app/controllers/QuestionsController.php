@@ -19,11 +19,10 @@ class QuestionsController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($page_id)
 	{
-		$questions = $this->question->all();
-
-		return View::make('questions.index', compact('questions'));
+		$questions = $this->question->with('page')->get();
+		return View::make('questions.index', compact('questions', 'page_id'));
 	}
 
 	/**
@@ -31,25 +30,10 @@ class QuestionsController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create($page_id)
 	{
-		// Take the params from the request 
-		$data = Input::all();
-		// If it does not contain a 'page_id'
-		// set it to a default to prevent an exception in the view
-		if(!isset($data['page_id'])) $data['page_id'] = '1';
-
-		// $pages = Page::all();
-		// $selectPages = array();
-
-		// foreach($pages as $page) {
-		//     $selectPages[$page->id] = $page->title;
-		// }
-
-		// return $pages;
 		return View::make('questions.create')
-			// ->with('pages', $selectPages)
-			->with('data', $data);
+			->with('page_id', $page_id);
 	}
 
 	/**
@@ -57,20 +41,20 @@ class QuestionsController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($page_id)
 	{
 		$input = Input::all();
+		$input['page_id'] = $page_id;
 
-		$validation = Validator::make($input, Question::$rules);
-
-		if ($validation->passes())
+		if($this->question->isValid($input))
 		{
 			$this->question->create($input);
 
-			return Redirect::route('questions.index');
+			return Redirect::route('pages.show', $page_id)
+				->with('message', 'Question succesfully created');
 		}
 
-		return Redirect::route('questions.create')
+		return Redirect::route('pages.questions.create')
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'There were validation errors.');
@@ -82,11 +66,11 @@ class QuestionsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($page_id, $id)
 	{
 		$question = $this->question->findOrFail($id);
 
-		return View::make('questions.show', compact('question'));
+		return View::make('questions.show', compact('question', 'page_id'));
 	}
 
 	/**
@@ -95,25 +79,20 @@ class QuestionsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($page_id, $id)
 	{
 		$question = $this->question->find($id);
 
-		$pages = Page::all();
-		$selectPages = array();
-
-		foreach($pages as $page) {
-		    $selectPages[$page->id] = $page->title;
-		}
-
 		if (is_null($question))
 		{
-			return Redirect::route('questions.index');
+			return Redirect::route('pages.questions.index')
+				->with('page_id', $page_id)
+				->with('error', 'There is no such question');
 		}
 		
 		return View::make('questions.edit')
 			->with('question',	$question)
-			->with('pages', 		$selectPages);
+			->with('page_id', 		$page_id);
 	}
 
 	/**
@@ -122,20 +101,21 @@ class QuestionsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($page_id, $id)
 	{
 		$input = array_except(Input::all(), '_method');
-		$validation = Validator::make($input, Question::$rules);
+		$input['page_id'] = $page_id;
 
-		if ($validation->passes())
+		if ( $this->question->isValid($input) )
 		{
 			$question = $this->question->find($id);
 			$question->update($input);
-
-			return Redirect::route('questions.show', $id);
+			
+			return Redirect::route('pages.edit', $id)
+				->with('message', 'Question is succesfully updated!');
 		}
 
-		return Redirect::route('questions.edit', $id)
+		return Redirect::route('pages.questions.edit', [$page_id, $id])
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'There were validation errors.');
@@ -147,19 +127,12 @@ class QuestionsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($page_id, $id)
 	{
 		$this->question->find($id)->delete();
 
-		return Redirect::route('questions.index');
+		return Redirect::back()
+			->with('page_id', $page_id)
+			->with('message', 'Questions was succesfully destroyed');
 	}
-
-	/**
-	 * PRIVATE FUNCTIONS GO HERE ******************************************* >>>
-	 *
-	 */
-	private function getSelectPages() {
-		return $this->page->all();
-	}
-
 }
