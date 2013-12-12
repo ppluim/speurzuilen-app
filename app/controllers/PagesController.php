@@ -17,7 +17,6 @@ class PagesController extends BaseController {
 	
 	public function index()
 	{
-
 		$pages = $this->getAllPages();
 
 		return View::make('pages.index', compact('pages'));
@@ -39,20 +38,13 @@ class PagesController extends BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::all();
-		$validation = Validator::make($input, Page::$rules);
-
-		if ($validation->passes())
+		if ( $this->page->isValid($input = Input::all()) )
 		{
 			$this->page->create($input);
-
 			return Redirect::route('pages.index');
 		}
 
-		return Redirect::route('pages.create')
-			->withInput()
-			->withErrors($validation)
-			->with('message', 'There were validation errors.');
+		return Redirect::route('pages.create')->withInput()->withErrors($this->page->$errors);
 	}
 
 	/**
@@ -65,6 +57,7 @@ class PagesController extends BaseController {
 	{
 		$page = $this->page->findOrFail($id);
 		$question = $page->questions->first();
+
 		if($page->getQuestionsAmount() > 0) $options  = $question->options;
 
 		return View::make('pages.show', compact('page', 'question', 'options'));
@@ -97,9 +90,8 @@ class PagesController extends BaseController {
 	public function update($id)
 	{
 		$input = array_except(Input::all(), '_method');
-		$validation = Validator::make($input, Page::$rules);
 
-		if ($validation->passes())
+		if ( $this->page->isValid($input) )
 		{
 			$page = $this->page->find($id);
 			$page->update($input);
@@ -109,7 +101,7 @@ class PagesController extends BaseController {
 
 		return Redirect::route('pages.edit', $id)
 			->withInput()
-			->withErrors($validation)
+			->withErrors()
 			->with('message', 'There were validation errors.');
 	}
 

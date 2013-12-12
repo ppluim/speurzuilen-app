@@ -16,6 +16,8 @@ class Page extends Eloquent {
 		'wander_main_text' => 'required'
 	);
 
+	public static $errors;
+
 	public function questions()
 	{
 	  return $this->hasMany('Question');
@@ -23,6 +25,15 @@ class Page extends Eloquent {
 
 	public function getQuestionsAmount() {
 		return $this->questions->count();
+	}
+
+	public function isValid($data) {
+		$validation = Validator::make($data, static::$rules);
+
+		if( $validation->passes()) return true;
+
+		static::$errors = $validation->messages();
+		return false;
 	}
 
 }

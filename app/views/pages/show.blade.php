@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('admin')
+	{{ link_to_route('pages.edit', 'Edit page', ['pages'=>$page->id]) }}
+@stop
+
 @section('header')
 <header {{ "class='page-title ".$page->color."'"  }}>
 		<h1>

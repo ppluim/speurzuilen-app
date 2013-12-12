@@ -8,6 +8,13 @@
 	</head>
 	<body>
 		<header class="main-header">
+			
+			@if(Auth::check())
+				<nav class="admin nav">
+					@yield('admin')
+				</nav>
+			@endif
+
 			<div class="external-links">
 				<ul class='horizontal'>
 					<li><a href="#">Speurzuilen</a></li>
@@ -18,7 +25,7 @@
 			<nav class="main-nav">
 				<ul class="nav nav-pills nav-pills-justified">
 					<li>
-						{{ link_to_route('start', 'Start', null, array('class'=>'main-nav__start')) }}
+						{{ link_to_route('start', 'Start', array('class'=>'main-nav__start')) }}
 					</li>
 					<li class="dropdown">
 						<a href="#" class="main-nav__navlist dropdown-toggle" data-toggle="dropdown">Spring naar zuil</a>
@@ -31,7 +38,7 @@
 						</ul>
 					</li>
 					<li>
-						{{ link_to_route('help', 'Help', null, array('class'=>'main-nav__help')) }}
+						{{ link_to_route('help', 'Help', array('class'=>'main-nav__help')) }}
 					</li>
 				</ul>
 			</nav>
@@ -42,6 +49,12 @@
 
 		<section class="page-content">
 			<div class="container">
+
+				@if (Session::has('message'))
+					<div class="flash alert alert-notice">
+						<p>{{ Session::get('message') }}</p>
+					</div>
+				@endif
 
 				@yield('main')
 

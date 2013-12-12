@@ -24,12 +24,11 @@ class UsersController extends \BaseController {
 
 			if(Auth::attempt($credentials)) {
 
-				return Redirect::to('admin');
+				return Redirect::back();
+				// return "Auth attempted";
 			
 			} else {
-
-				return Redirect::to('login')->withErrors($credentials);
-
+				return Redirect::back()->withErrors($credentials);
 			}
 		}
 	}

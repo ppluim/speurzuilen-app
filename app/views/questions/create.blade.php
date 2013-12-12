@@ -4,26 +4,15 @@
 
 <h1>Create Question</h1>
 
-{{ Form::open(array('route' => 'questions.store')) }}
-	<ul>
-        <li>
-            {{ Form::label('title', 'Title:') }}
-            {{ Form::text('title') }}
-        </li>
-        <li>
-            {{ Form::label('page_id', 'Page') }}
-            {{ Form::select('page_id', $pages, $data['page_id']) }}
-        </li>
-    
-        <li>
-            {{ Form::label('description', 'Description:') }}
-            {{ Form::textarea('description') }}
-        </li>
+{{ Form::open(
+    array('route' => 'questions.store', 
+        'class' => 'form-horizontal',
+        'role'  => 'form'
+    )
+)}}
 
-		<li>
-			{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
-		</li>
-	</ul>
+@include('partials.questions_form');
+
 {{ Form::close() }}
 
 @if ($errors->any())

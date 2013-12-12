@@ -19,4 +19,10 @@ Route::resource('pages', 'PagesController');
 Route::resource('questions', 'QuestionsController');
 Route::resource('options', 'OptionsController');
 
+Route::get('login', 'UsersController@getLogin');
+Route::post('login', 'UsersController@postLogin');
+Route::get('admin', 'AdminController@getIndex');
+Route::get('logout', 'UsersController@logout');
+
+
 
