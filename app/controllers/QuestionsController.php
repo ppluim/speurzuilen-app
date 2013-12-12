@@ -32,8 +32,11 @@ class QuestionsController extends BaseController {
 	 */
 	public function create($page_id)
 	{
+		// $page = $page_id;
+		$page = Page::findOrFail($page_id);
+
 		return View::make('questions.create')
-			->with('page_id', $page_id);
+			->with('page', $page);
 	}
 
 	/**

@@ -2,12 +2,12 @@
 
 @section('main')
 
-<h1>Create Question</h1>
+<h1>Create Question for {{ $page->title }}</h1>
 
 {{ Form::open([
 		'route' => [
 			'pages.questions.store',
-			'pages'=>$page_id
+			'pages'=>$page->id
 		], 
     'class' => 'form-horizontal',
     'role'  => 'form'

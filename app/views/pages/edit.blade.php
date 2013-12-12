@@ -34,20 +34,20 @@
 
 {{ Form::close() }}
 <hr />
-@if ($page->questions->count())
-	<table class="table table-striped table-bordered">
-		<thead>
-			<tr>
-				<th>Page</th>
-				<th>Title</th>
-				<th>Description</th>
-			</tr>
-		</thead>
 
-		<tbody>
+<h2>Questions</h2>
+@if ($page->questions->count())
 			@foreach ($page->questions as $question)
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Question</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+
+				<tbody>
 				<tr>
-					<td>{{{ $question->page->title }}}</td>
 					<td>{{{ $question->title }}}</td>
 					<td>{{{ $question->description }}}</td>
           <td>{{ link_to_route('pages.questions.edit', 'Edit', array($question->page_id, $question->id), array('class' => 'btn btn-info')) }}</td>
@@ -59,10 +59,14 @@
 					{{ Form::close() }}
          
 				</tr>
+
+				</tbody>
+			</table>
 			@endforeach
-		</tbody>
-	</table>
 @else
 	There are no questions
 @endif
+{{ link_to_route('pages.questions.create', 'Add new question', $page->id, ['class'=>'btn btn-primary']) }}
+
+
 @stop
