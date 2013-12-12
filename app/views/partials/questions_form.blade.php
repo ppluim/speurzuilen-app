@@ -1,9 +1,4 @@
-<div class="form-group">
-    {{ Form::label('page_id', 'Pagina', array('class'=>'col-sm-2 control-label')) }}
-    <div class="col-sm-3">
-        {{ Form::select('page_id', $pages, $data['page_id'], array('class'=>'form-control')) }}
-    </div>
-</div>
+
 <div class="form-group">
     {{ Form::label('title', 'Titel',  array('class'=>'col-sm-2 control-label')) }}
     <div class="col-sm-6">

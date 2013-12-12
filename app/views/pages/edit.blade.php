@@ -24,4 +24,16 @@
 	</ul>
 @endif
 
+
+{{ Form::open(
+    array('route' => 'questions.store', 
+        'class' => 'form-horizontal',
+        'role'  => 'form'
+    )
+)}}
+
+@include('partials.questions_form');
+
+{{ Form::close() }}
+
 @stop
