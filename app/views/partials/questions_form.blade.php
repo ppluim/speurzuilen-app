@@ -12,10 +12,11 @@
         {{ Form::textarea('description', null, array('class'=>'form-control')) }}
     </div>
 </div>
-
+    {{ Form::text('page_id', $data['page_id'], ['class'=>'hidden']) }}
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-6">  
 	  {{ Form::submit('Update', array('class' => 'btn btn-info')) }}
     </div>
 </div>
+
 

@@ -39,16 +39,16 @@ class QuestionsController extends BaseController {
 		// set it to a default to prevent an exception in the view
 		if(!isset($data['page_id'])) $data['page_id'] = '1';
 
-		$pages = Page::all();
-		$selectPages = array();
+		// $pages = Page::all();
+		// $selectPages = array();
 
-		foreach($pages as $page) {
-		    $selectPages[$page->id] = $page->title;
-		}
+		// foreach($pages as $page) {
+		//     $selectPages[$page->id] = $page->title;
+		// }
 
 		// return $pages;
 		return View::make('questions.create')
-			->with('pages', $selectPages)
+			// ->with('pages', $selectPages)
 			->with('data', $data);
 	}
 
@@ -60,6 +60,7 @@ class QuestionsController extends BaseController {
 	public function store()
 	{
 		$input = Input::all();
+
 		$validation = Validator::make($input, Question::$rules);
 
 		if ($validation->passes())

@@ -4,7 +4,8 @@ class Question extends Eloquent {
 	protected $guarded = array();
 
 	public static $rules = array(
-		'title' => 'required'
+		'title' => 'required',
+		'page_id' => 'required'
 	);
 	
 	public function page()
