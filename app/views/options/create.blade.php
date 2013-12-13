@@ -4,7 +4,15 @@
 
 <h1>Create Option</h1>
 
-{{ Form::open(array('route' => 'options.store')) }}
+{{ Form::open(array(
+    'route' => [
+        'pages.questions.options.store', 
+        'pages'=>$page_id, 
+        'questions'=>$question_id
+    ],
+    'class' => 'form-horizontal',
+    'role'  => 'form'
+)) }}
 	<ul>
         <li>
             {{ Form::label('title', 'Title:') }}
