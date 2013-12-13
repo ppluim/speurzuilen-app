@@ -55,8 +55,8 @@ class PagesController extends BaseController {
 	 */
 	public function show($id)
 	{
-		$page = $this->page->findOrFail($id)->with('questions')->with('options');
-
+		$page = $this->page->find($id);
+		// return 'this';
 		return View::make('pages.show', compact('page'));
 	}
 
