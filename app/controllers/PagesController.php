@@ -56,7 +56,7 @@ class PagesController extends BaseController {
 	public function show($id)
 	{
 		$page = $this->page->find($id);
-		// return 'this';
+		// return 'xthis';
 		return View::make('pages.show', compact('page'));
 	}
 
@@ -122,8 +122,4 @@ class PagesController extends BaseController {
 	private function getAllPages() {
 		return $this->page->all();
 	}
-
-	// public function hasQuestion() {
-	// 	return !is_null($this->page->question->first());
-	// }
 }
