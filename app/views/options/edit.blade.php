@@ -3,7 +3,7 @@
 @section('main')
 
 <h1>Edit Option</h1>
-{{ Form::model($option, array('method' => 'PATCH', 'route' => array('options.update', $option->id))) }}
+{{ Form::model($option, array('method' => 'PATCH', 'route' => array('pages.questions.options.update', $option->question->page_id, $option->question_id, $option->id))) }}
 	<ul>
         <li>
             {{ Form::label('title', 'Title:') }}
@@ -27,7 +27,7 @@
 
 		<li>
 			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-			{{ link_to_route('options.show', 'Cancel', $option->id, array('class' => 'btn')) }}
+			{{ link_to_route('pages.edit', 'Cancel', $page_id, array('class' => 'btn')) }}
 		</li>
 	</ul>
 {{ Form::close() }}

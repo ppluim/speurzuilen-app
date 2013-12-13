@@ -78,16 +78,16 @@ class OptionsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($page_id, $question_id, $id)
 	{
 		$option = $this->option->find($id);
 
 		if (is_null($option))
 		{
-			return Redirect::route('options.index');
+			return Redirect::route('pages.edit', $page_id);
 		}
 
-		return View::make('options.edit', compact('option'));
+		return View::make('options.edit', compact('option', 'page_id', 'question_id'));
 	}
 
 	/**
@@ -96,7 +96,7 @@ class OptionsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($page_id, $question_id, $id)
 	{
 		$input = array_except(Input::all(), '_method');
 		$validation = Validator::make($input, Option::$rules);
@@ -106,7 +106,7 @@ class OptionsController extends BaseController {
 			$option = $this->option->find($id);
 			$option->update($input);
 
-			return Redirect::route('options.show', $id);
+			return Redirect::route('pages.edit', $page_id);
 		}
 
 		return Redirect::route('options.edit', $id)
@@ -121,11 +121,12 @@ class OptionsController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($page_id, $question_id, $id)
 	{
 		$this->option->find($id)->delete();
 
-		return Redirect::route('options.index');
+		return Redirect::route('pages.edit', $page_id)
+			->with('message', 'Option is succesfully destroyed');
 	}
 
 }
