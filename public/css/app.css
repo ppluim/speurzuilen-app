@@ -5092,6 +5092,11 @@ input {
 .button {
   background: red; }
 
+.actions {
+  display: inline; }
+  .actions form {
+    display: inline; }
+
 .yellow {
   background-color: #ffd428; }
 
