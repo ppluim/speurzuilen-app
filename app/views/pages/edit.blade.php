@@ -17,16 +17,8 @@
 		@foreach ($page->questions as $question)
 
 			<div class="question well clearfix">
-				<div class="actions pull-right">
-					<span class="actions__edit">
-						{{ link_to_route('pages.questions.edit', 'Edit', [$question->page_id, $question->id], ['class' => 'btn btn-info']) }}
-					</span>
-					<span class="actions__delete">						
-						{{ Form::open(['method'=>'DELETE','action'=>['QuestionsController@destroy',$question->page_id,$question->id]])}}
-						{{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
-						{{ Form::close() }}
-					</span>
-				</div>
+
+				@include('partials.admin._actions', ['editRoute'=>'pages.questions.edit', 'editData'=>[$question->page_id, $question->id], 'deleteAction'=>['QuestionsController@destroy',$question->page_id,$question->id]])
 				<h4>{{ $question->title }}</h4>
 			</div>
 		
@@ -34,30 +26,16 @@
 		<table class="table table-striped table-bordered">
 			<thead>
 				<tr>
-					<th>Title</th>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach ($question->options as $option)
 					<tr>					
 						<td>{{ $option->title }}</td>
+						<td>{{ $option->description }}</td>
 						<td>
-							{{ link_to_route(
-								'pages.questions.options.edit', 
-								'Edit', 
-								[$page->id, $option->question_id, $option->id], 
-								['class' => 'btn btn-info']
-							) }}
-						</td>
-	      		{{ Form::open([
-	      			'method'=>'DELETE',
-	      			'action'=>
-	      			['OptionsController@destroy',$page->id,$option->question_id,$option->id]
-	      		])}}
-	      		<td>
-	      			{{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+							@include('partials.admin._actions', ['editRoute'=>'pages.questions.options.edit', 'editData'=>[$page->id, $option->question_id, $option->id], 'deleteAction'=>['OptionsController@destroy',$page->id,$option->question_id,$option->id]])
 	      		</td>
-						{{ Form::close() }}
 					</tr>
 				@endforeach
 			</tbody>
