@@ -84,13 +84,15 @@ class OptionsController extends BaseController {
 	public function edit($page_id, $question_id, $id)
 	{
 		$option = $this->option->find($id);
+		$question = Question::find($question_id);
+		$page = Page::find($page_id);
 
 		if (is_null($option))
 		{
 			return Redirect::route('pages.edit', $page_id);
 		}
 
-		return View::make('options.edit', compact('option', 'page_id', 'question_id'));
+		return View::make('options.edit', compact('option', 'page', 'question'));
 	}
 
 	/**
