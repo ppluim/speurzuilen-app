@@ -6,6 +6,7 @@ class Option extends Eloquent {
 	public static $rules = array(
 		'title' => 'required',
 		'description' => 'required',
+		'question_id' => 'required'
 	);
 	
 	public function question()

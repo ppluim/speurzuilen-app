@@ -43,19 +43,20 @@ class OptionsController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($pages, $questions)
 	{
 		$input = Input::all();
+		$input['question_id'] = $questions;
 		$validation = Validator::make($input, Option::$rules);
 
 		if ($validation->passes())
 		{
 			$this->option->create($input);
 
-			return Redirect::route('options.index');
+			return Redirect::route('pages.edit', compact('pages'));
 		}
 
-		return Redirect::route('options.create')
+		return Redirect::route('pages.questions.options.create', compact('pages', 'questions'))
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'There were validation errors.');

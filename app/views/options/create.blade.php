@@ -13,31 +13,34 @@
     'class' => 'form-horizontal',
     'role'  => 'form'
 )) }}
-	<ul>
-        <li>
-            {{ Form::label('title', 'Title:') }}
-            {{ Form::text('title') }}
-        </li>
 
-        <li>
-            {{ Form::label('description', 'Description:') }}
-            {{ Form::textarea('description') }}
-        </li>
+<div class="form-group">
+    {{ Form::label('title', 'Titel',  ['class'=>'col-sm-2 control-label']) }}
+    <div class="col-sm-6">
+        {{ Form::text('title', null, ['class'=>'form-control']) }}            
+    </div>
+</div>
 
-        <li>
-            {{ Form::label('correct?', 'Correct?:') }}
-            {{ Form::checkbox('correct?') }}
-        </li>
+<div class="form-group">
+    {{ Form::label('description', 'Description',  ['class'=>'col-sm-2 control-label']) }}
+    <div class="col-sm-6">
+        {{ Form::textarea   ('description', null, ['class'=>'form-control']) }}            
+    </div>
+</div>
 
-        <li>
-            {{ Form::label('belongs_to', 'Belongs_to:') }}
-            {{ Form::text('belongs_to') }}
-        </li>
+<div class="form-group">
+    {{ Form::label('correct?', 'Correct answer?',  ['class'=>'col-sm-2 control-label']) }}
+    <div class="col-sm-6">
+        {{ Form::checkbox('correct', null, ['class'=>'form-control']) }}            
+    </div>
+</div>
 
-		<li>
-			{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
-		</li>
-	</ul>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+		{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
+    </div>
+</div>
+
 {{ Form::close() }}
 
 @if ($errors->any())
