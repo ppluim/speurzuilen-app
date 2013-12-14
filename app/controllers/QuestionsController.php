@@ -32,7 +32,6 @@ class QuestionsController extends BaseController {
 	 */
 	public function create($page_id)
 	{
-		// $page = $page_id;
 		$page = Page::findOrFail($page_id);
 
 		return View::make('questions.create')
@@ -85,6 +84,7 @@ class QuestionsController extends BaseController {
 	public function edit($page_id, $id)
 	{
 		$question = $this->question->find($id);
+		$page = Page::findOrFail($page_id);
 
 		if (is_null($question))
 		{
@@ -95,7 +95,7 @@ class QuestionsController extends BaseController {
 		
 		return View::make('questions.edit')
 			->with('question',	$question)
-			->with('page_id', 		$page_id);
+			->with('page', 		$page);
 	}
 
 	/**
