@@ -9,11 +9,19 @@ if( ! function_exists('say'))
   }
 }
 
-if( ! function_exists('awesome_icon')) 
+if( ! function_exists('awesome_button')) 
 {
-	function awesome_icon($name = 'plus')
+	function awesome_button($route, $parameters = array(), $buttonClass, $icon = 'plus', $buttonText)
 	{
-		return '<i class="fa fa-'.$name.'"></i>';
+		return '<a href="'.route($route).'" class="'.$buttonClass.'"><i class="'.$icon.'"></i> '.$buttonText.'</a>';
+	}
+}
+
+if( ! function_exists('google_webfont')) 
+{
+	function google_webfont($webfont = 'Open+Sans')
+	{
+		return "<link href='http://fonts.googleapis.com/css?family='".$webfont."' rel='stylesheet' type='text/css'>";
 	}
 }
     

@@ -3,6 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		
+		{{ google_webfont() }}
+		
 		{{ stylesheet('bootstrap/bootstrap.css') }}
 		{{ stylesheet('redactor/redactor.css') }}
 		{{ stylesheet('font-awesome/font-awesome.css') }}
