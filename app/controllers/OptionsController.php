@@ -89,7 +89,7 @@ class OptionsController extends BaseController {
 
 		if (is_null($option))
 		{
-			return Redirect::route('pages.edit', $page_id);
+			return Redirect::route('pages.edit', $page_id)->withErrors();
 		}
 
 		return View::make('options.edit', compact('option', 'page', 'question'));
@@ -103,21 +103,22 @@ class OptionsController extends BaseController {
 	 */
 	public function update($page_id, $question_id, $id)
 	{
-		$input = array_except(Input::all(), '_method');
-		$validation = Validator::make($input, Option::$rules);
+		return 'Tries to update';
+		// $input = array_except(Input::all(), '_method');
+		// $validation = Validator::make($input, Option::$rules);
 
-		if ($validation->passes())
-		{
-			$option = $this->option->find($id);
-			$option->update($input);
+		// if ($validation->passes())
+		// {
+		// 	$option = $this->option->find($id);
+		// 	$option->update($input);
 
-			return Redirect::route('pages.edit', $page_id);
-		}
+		// 	return Redirect::route('pages.edit', $page_id);
+		// }
 
-		return Redirect::route('options.edit', $id)
-			->withInput()
-			->withErrors($validation)
-			->with('message', 'There were validation errors.');
+		// return Redirect::route('options.edit', $id)
+		// 	->withInput()
+		// 	->withErrors($validation)
+		// 	->with('message', 'There were validation errors.');
 	}
 
 	/**

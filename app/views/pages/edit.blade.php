@@ -16,6 +16,7 @@
 @if ($page->questions->count())
 		@foreach ($page->questions as $question)
 
+			<p>{{ link_to_route('pages.questions.create', 'Add new question', $page->id, ['class'=>'btn btn-default']) }}</p>
 			<div class="question well clearfix">
 
 				@include('partials.admin._actions', ['editRoute'=>'pages.questions.edit', 'editData'=>[$question->page_id, $question->id], 'deleteAction'=>['QuestionsController@destroy',$question->page_id,$question->id]])
@@ -23,6 +24,7 @@
 			</div>
 		
 		<h3>Options</h3>
+		<p>{{ link_to_route('pages.questions.options.create', 'Add option', [$page->id, $question->page_id], ['class'=>'btn btn-default']) }}</p>
 		<table class="table table-striped table-bordered">
 			<thead>
 				<tr>
@@ -45,6 +47,5 @@
 @else
 	There are no questions
 @endif
-{{ link_to_route('pages.questions.create', 'Add new question', $page->id, ['class'=>'btn btn-primary']) }}
 
 @stop
