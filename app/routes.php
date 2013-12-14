@@ -17,12 +17,10 @@ Route::get('help', array('as'=>'help','uses'=>'HomeController@getHelp'));
 
 Route::resource('pages.questions', 'QuestionsController');
 Route::resource('pages', 'PagesController');
-// Route::resource('pages.questions', 'QuestionsController');
 Route::resource('pages.questions.options', 'OptionsController');
 
 Route::get('login', 'UsersController@getLogin');
 Route::post('login', 'UsersController@postLogin');
-Route::get('admin', 'AdminController@getIndex');
 Route::get('logout', 'UsersController@logout');
 
 

@@ -5112,6 +5112,9 @@ input {
   .actions form {
     display: inline; }
 
+.login-form {
+  margin-top: 100px; }
+
 .yellow {
   background-color: #ffd428; }
 
