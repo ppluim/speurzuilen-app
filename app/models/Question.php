@@ -9,7 +9,8 @@ class Question extends Eloquent {
 	);
 
 	public static $errors;
-	
+	public static $messages;
+
 	public function page()
 	{
 	    return $this->belongsTo('Page');
@@ -28,5 +29,16 @@ class Question extends Eloquent {
 
 		static::$errors = $validation->messages();
 		return false;
+	}
+
+	public function delete()
+	{
+		// delete all related options 
+  	foreach($this->options as $option)
+  	{
+  		$option->delete();
+  	}
+		parent::delete();
+		static::$messages = 'Questions succesfully deleted';
 	}
 }

@@ -22,6 +22,13 @@ class PagesTableSeeder extends Seeder {
 				'wander_main_text' => 'Aan de kant van de Hengelosestraat liggen de twee dierenweiden. De weiden bieden een stukje natuur voor iedereen die langs het G.J. van Heekpark komt.',
 				'wander_tour_text' => 'Ga een stukje terug over het pad en loop rechtdoor voorbij de speeltuin, het woonhuis en het water. Bij de boom en het bankje staat het volgende paaltje.'
 			],
+			[
+				'id' => '3',
+				'title' => 'Vijver',
+				'color' => 'blue',
+				'wander_main_text' => 'Aan de kant van de Hengelosestraat liggen de twee dierenweiden. De weiden bieden een stukje natuur voor iedereen die langs het G.J. van Heekpark komt.',
+				'wander_tour_text' => 'Ga een stukje terug over het pad en loop rechtdoor voorbij de speeltuin, het woonhuis en het water. Bij de boom en het bankje staat het volgende paaltje.'
+			]
 		);
 
 		// Uncomment the below to run the seeder

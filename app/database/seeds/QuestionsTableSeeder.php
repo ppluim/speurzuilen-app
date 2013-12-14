@@ -19,6 +19,12 @@ class QuestionsTableSeeder extends Seeder {
 				'page_id' => '2',
 				'title'	=> 'Hoe worden jonge schapen genoemd?',
 				'description' => 'Je staat nu bij de dierenweiden. Hier staan de schapen en in de andere weide mogen honden spelen. Schapen zijn voor mensen heel handig, bijvoorbeeld voor wol. Ook zijn ze graag samen met andere schapen. Een groep schapen heet een kudde.'
+			],
+			[
+				'id' => '3',
+				'page_id' => '3',
+				'title'	=> 'Hoe worden jonge schapen genoemd?',
+				'description' => 'Je staat nu bij de dierenweiden. Hier staan de schapen en in de andere weide mogen honden spelen. Schapen zijn voor mensen heel handig, bijvoorbeeld voor wol. Ook zijn ze graag samen met andere schapen. Een groep schapen heet een kudde.'
 			]
 		);
 

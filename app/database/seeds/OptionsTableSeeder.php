@@ -49,7 +49,29 @@ class OptionsTableSeeder extends Seeder {
 				'title' => 'Ooi',
 				'description' => 'Helaas, Dit is de naam voor een vrouwtjes schaap. Probeer het nog eens!',
 				'correct' => false
+			],
+			[
+				'id' => '7',
+				'question_id' => '3',
+				'title' => 'Ram',
+				'description' => 'Nee, dit is de naam voor het mannetjes schaap. Klik nog eens!',
+				'correct' => false
+			],
+			[
+				'id' => '8',
+				'question_id' => '3',
+				'title' => 'Lam',
+				'description' => 'Dat klopt inderdaad! Volg de pijl naar het blauwe paaltje!',
+				'correct' => true
+			],
+			[
+				'id' => '9',
+				'question_id' => '3',
+				'title' => 'Ooi',
+				'description' => 'Helaas, Dit is de naam voor een vrouwtjes schaap. Probeer het nog eens!',
+				'correct' => false
 			]
+
 
 		);
 

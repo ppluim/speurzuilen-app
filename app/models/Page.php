@@ -3,6 +3,8 @@
 class Page extends Eloquent {
 	protected $guarded = array();
 
+	// Static Properties
+	// -----------------
 	public static $colors = array(
 		'purple'=>'purple',
 		'yellow'=>'yellow', 
@@ -18,10 +20,31 @@ class Page extends Eloquent {
 
 	public static $errors;
 
+	// Relationships
+	// -------------
 	public function questions()
 	{
 	  return $this->hasMany('Question');
 	}
+
+	 public function options()
+    {
+        return $this->hasManyThrough('Option', 'Question');
+    }
+
+  // Methods
+  // -------
+  public function delete()
+  {
+    // delete all related questions 
+    foreach($this->questions as $question)
+    {
+      $question->delete();
+    }
+
+    // delete the page
+    return parent::delete();
+  }
 
 	public function getQuestionsAmount() {
 		return $this->questions->count();

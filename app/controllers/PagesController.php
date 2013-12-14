@@ -111,7 +111,7 @@ class PagesController extends BaseController {
 	{
 		$this->page->find($id)->delete();
 
-		return Redirect::route('pages.index');
+		return Redirect::route('pages.index')->with('message', 'Page succesfully deleted!');
 	}
 
 	/**

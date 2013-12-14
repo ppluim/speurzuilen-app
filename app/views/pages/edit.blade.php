@@ -12,28 +12,23 @@
 
 <hr />
 
-<h2>Questions</h2>
+<h2>Quizvraag</h2>
 @if ($page->questions->count())
-	@foreach ($page->questions as $question)
-		<table class="table table-striped table-bordered">
-			<thead>
-				<tr>
-					<th>Question</th>
-					<th>Description</th>
-				</tr>
-			<tbody>
-			<tr>
-				<td>{{{ $question->title }}}</td>
-				<td>{{{ $question->description }}}</td>
-	      <td>{{ link_to_route('pages.questions.edit', 'Edit', array($question->page_id, $question->id), array('class' => 'btn btn-info')) }}</td>
-	      {{ Form::open(['method'=>'DELETE','action'=>['QuestionsController@destroy',$question->page_id,$question->id]])}}
-	      <td>
-	      	{{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
-	      </td>
-				{{ Form::close() }}
-			</tr>
-			</tbody>
-		</table>
+		@foreach ($page->questions as $question)
+
+			<div class="question well clearfix">
+				<div class="actions pull-right">
+					<span class="actions__edit">
+						{{ link_to_route('pages.questions.edit', 'Edit', [$question->page_id, $question->id], ['class' => 'btn btn-info']) }}
+					</span>
+					<span class="actions__delete">						
+						{{ Form::open(['method'=>'DELETE','action'=>['QuestionsController@destroy',$question->page_id,$question->id]])}}
+						{{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+						{{ Form::close() }}
+					</span>
+				</div>
+				<h4>{{ $question->title }}</h4>
+			</div>
 		
 		<h3>Options</h3>
 		<table class="table table-striped table-bordered">
