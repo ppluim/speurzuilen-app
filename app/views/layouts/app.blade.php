@@ -9,19 +9,11 @@
 	<body>
 		<header class="main-header">
 			
-			@if(Auth::check())
-				<div class="admin-menu navbar-inverse clearfix">
-					<div class="container">
-				    <ul class="nav">
-				      <li>{{ link_to_route('pages.index', 'Index Pages') }}</li>
-				      <li>{{ link_to_route('pages.create', 'Add Page') }}</li>
-				      <li>{{ link_to_route('pages.edit', 'Edit Page', $page->id) }}</li>
-				      <li>{{ link_to_action('UsersController@logout', 'Logout') }}</li>
-				    </ul>
-			    </div>
-				</div>
+			@if(Auth::check()) 
+				@include('partials.admin._navigation') 
 			@endif
 
+			
 			<div class="external-links">
 				<ul class='horizontal'>
 					<li><a href="#">Speurzuilen</a></li>

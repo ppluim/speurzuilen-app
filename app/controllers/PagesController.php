@@ -18,7 +18,7 @@ class PagesController extends BaseController {
 	public function index()
 	{
 		$pages = $this->getAllPages();
-
+		$isIndex = true;
 		return View::make('pages.index', compact('pages'));
 	}
 	/**

@@ -24,12 +24,12 @@
 					<td>{{{ $page->color }}}</td>
 					<td>{{{ $page->wander_tour_text }}}</td>
 					<td>{{{ $page->wander_main_text }}}</td>
-                    <td>{{ link_to_route('pages.edit', 'Edit', array($page->id), array('class' => 'btn btn-info')) }}</td>
-                    <td>
-                        {{ Form::open(array('method' => 'DELETE', 'route' => array('pages.destroy', $page->id))) }}
-                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
-                        {{ Form::close() }}
-                    </td>
+          <td>{{ link_to_route('pages.edit', 'Edit', array($page->id), array('class' => 'btn btn-info')) }}</td>
+          <td>
+              {{ Form::open(array('method' => 'DELETE', 'route' => array('pages.destroy', $page->id))) }}
+                  {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+              {{ Form::close() }}
+          </td>
 				</tr>
 			@endforeach
 		</tbody>
