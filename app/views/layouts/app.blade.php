@@ -49,11 +49,14 @@
 
 		<section class="page-content">
 			<div class="container">
-
+	
 				@if (Session::has('message'))
-					<div class="flash alert alert-notice">
-						<p>{{ Session::get('message') }}</p>
-					</div>
+					<p>
+						<div class="flash alert alert-info">
+							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<p>{{ Session::get('message') }}</p>
+						</div>
+					</p>
 				@endif
 
 				@yield('main')
