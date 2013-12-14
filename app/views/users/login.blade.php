@@ -18,7 +18,7 @@
 		
 				{{ Form::text('email', '', ['placeholder' => 'Email', 'class'=>'form-control']) }}<br>
 				{{ Form::password('password', ['placeholder' => 'Password', 'class'=>'form-control']) }}<br>
-				{{ Form::submit('Login', array('class' => 'btn btn-success')) }}
+				{{ Form::submit('Login', array('class' => 'btn btn-lrg btn-success')) }}
 	
 	
 			{{ Form::close() }}

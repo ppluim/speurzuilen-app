@@ -17,11 +17,13 @@ class HomeController extends BaseController {
 
 	public function getStart()
 	{
-		return View::make('home.start');
+		$page = Page::first();
+		return View::make('home.start', compact('page'));
 	}
 
 	public function getHelp()
 	{
-		return View::make('home.help');
+		$page = Page::first();
+		return View::make('home.help', compact('page'));
 	}
 }

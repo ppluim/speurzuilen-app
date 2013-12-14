@@ -21,7 +21,7 @@ if( ! function_exists('google_webfont'))
 {
 	function google_webfont($webfont = 'Open+Sans')
 	{
-		return "<link href='http://fonts.googleapis.com/css?family='".$webfont."' rel='stylesheet' type='text/css'>";
+		return "<link href='http://fonts.googleapis.com/css?family=".$webfont."' rel='stylesheet' type='text/css'>";
 	}
 }
     

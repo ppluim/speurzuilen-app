@@ -2,9 +2,10 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		
-		{{ google_webfont() }}
-		
+
+		{{ google_webfont('Open+Sans') }}
+		{{ google_webfont('Amaranth') }}
+
 		{{ stylesheet('bootstrap/bootstrap.css') }}
 		{{ stylesheet('redactor/redactor.css') }}
 		{{ stylesheet('font-awesome/font-awesome.css') }}
@@ -13,9 +14,9 @@
 		{{ HTML::script('js/jquery.min.js') }}
 
 		@yield('head_script')
-		
+		@yield('head')
 	</head>
-	<body>
+	<body class={{ $bodyClass="dark"}}>
 		<header class="main-header">
 			
 			@if(Auth::check()) 

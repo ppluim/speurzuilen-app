@@ -69,6 +69,9 @@ input {
 .login-form {
   margin-top: 100px; }
 
+.well-dark {
+  background-color: #333333; }
+
 .yellow {
   background-color: #ffd428; }
 
