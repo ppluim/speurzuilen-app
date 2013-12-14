@@ -25,9 +25,7 @@
 		
 		<h3>Options</h3>
 		<p>{{ link_to_route('pages.questions.options.create', 'Add option', [$page->id, $question->page_id], ['class'=>'btn btn-default']) }}</p>
-
-		<a href="#" class="btn btn-xs btn-default">{{ awesome_icon('download') }}</i> Jonge</a>
-		<table class="table table-striped table-bordered">
+p		<table class="table table-striped table-bordered">
 			<thead>
 				<tr>
 				</tr>

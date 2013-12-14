@@ -4,9 +4,14 @@
 		<meta charset="utf-8">
 		
 		{{ stylesheet('bootstrap/bootstrap.css') }}
+		{{ stylesheet('redactor/redactor.css') }}
 		{{ stylesheet('font-awesome/font-awesome.css') }}
 		{{ stylesheet('app.css') }}
+		
+		{{ HTML::script('js/jquery.min.js') }}
 
+		@yield('head_script')
+		
 	</head>
 	<body>
 		<header class="main-header">
@@ -67,7 +72,7 @@
 		
 		<footer class="page-footer"></footer>
 	
-		{{ HTML::script('js/jquery.min.js') }}
 		{{ HTML::script('js/bootstrap.min.js') }}
+		{{ HTML::script('js/redactor.min.js') }}
 	</body>
 </html>

@@ -44,7 +44,7 @@ class PagesController extends BaseController {
 			return Redirect::route('pages.index');
 		}
 
-		return Redirect::route('pages.create')->withInput()->withErrors($this->page->$errors);
+		return Redirect::route('pages.create')->withInput()->withErrors($this->page->errors);
 	}
 
 	/**

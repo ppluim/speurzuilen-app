@@ -1,3 +1,14 @@
+@section('head_script')
+  <script type="text/javascript">
+    $(document).ready(
+      function()
+      {
+        $('.redactor').redactor();
+      }
+    );
+  </script>
+@stop
+
 @if($isModel)
 	{{ Form::model($page, [
 		'method' => 'PATCH', 
@@ -26,14 +37,14 @@
 <div class="form-group">
   {{ Form::label('wander_main_text', 'Wandeltocht tekst',  ['class'=>'col-sm-2 control-label']) }}
   <div class="col-sm-6">
-      {{ Form::textarea('wander_main_text', null, ['class'=>'form-control']) }}            
+      {{ Form::textarea('wander_main_text', null, ['id'=>'redactor_content1', 'class'=>'redactor form-control']) }}            
   </div>
 </div>
 
 <div class="form-group">
   {{ Form::label('wander_tour_text', 'Tour tekst',  ['class'=>'col-sm-2 control-label']) }}
   <div class="col-sm-6">
-      {{ Form::textarea('wander_tour_text', null, ['class'=>'form-control']) }}            
+      {{ Form::textarea('wander_tour_text', null, ['id'=>'redactor_content2', 'class'=>'redactor form-control']) }}            
   </div>
 </div>
 
