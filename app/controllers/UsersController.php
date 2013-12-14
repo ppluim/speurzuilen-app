@@ -24,7 +24,7 @@ class UsersController extends \BaseController {
 
 			if(Auth::attempt($credentials)) {
 
-				return Redirect::back();
+				return Redirect::route('pages.index');
 				// return "Auth attempted";
 			
 			} else {

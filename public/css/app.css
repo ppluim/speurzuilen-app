@@ -5089,6 +5089,21 @@ input {
     display: inline;
     list-style: none; }
 
+.admin-menu .nav {
+  float: right;
+  display: inline; }
+  .admin-menu .nav:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .admin-menu .nav > li {
+    float: left; }
+    .admin-menu .nav > li > a {
+      color: #b3b3b3; }
+      .admin-menu .nav > li > a:hover {
+        color: #eeeeee;
+        background-color: #1b1b1b; }
+
 .button {
   background: red; }
 

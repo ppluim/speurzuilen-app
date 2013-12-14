@@ -10,8 +10,16 @@
 		<header class="main-header">
 			
 			@if(Auth::check())
-				<nav class="admin nav">
-					@yield('admin')
+					<div class="admin-menu navbar-inverse clearfix">
+						<div class="container">
+					    <ul class="nav">
+					      <li>{{ link_to_route('pages.index', 'Index Pages') }}</li>
+					      <li>{{ link_to_route('pages.create', 'Add Page') }}</li>
+					      <li>{{ link_to_route('pages.edit', 'Edit Page', $page->id) }}</li>
+					      <li>{{ link_to_action('UsersController@logout', 'Logout') }}</li>
+					    </ul>
+				    </div>
+					</div>
 				</nav>
 			@endif
 
@@ -32,7 +40,7 @@
 						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 
 							@foreach ( Page::all() as $page )
-								<li>{{ link_to_action('PagesController@show', $page->title, $attributes = array($page->id)) }}</li>
+								<li>{{ link_to_action('PagesController@show', $page->title, $page->id) }}</li>
 							@endforeach
 
 						</ul>

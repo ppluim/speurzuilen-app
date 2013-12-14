@@ -25,7 +25,6 @@
 	</div>
 </section>
 
-
 <section class="quiz">
 	<h2 class="quiz__header">Speurtocht</h2>
 

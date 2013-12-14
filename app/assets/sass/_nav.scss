@@ -6,3 +6,24 @@
 		list-style: none;
 	}
 }
+
+.admin-menu {
+	.nav {
+		@include clearfix();
+		float:right;
+		display: inline;
+		
+		> li {
+			float:left;
+
+			> a {
+				color: lighten($gray-light, 10%);
+
+				&:hover {
+					color: $gray-lighter;
+					background-color: darken($gray-darker, 3%);
+				}
+			}
+		}
+	}
+}
