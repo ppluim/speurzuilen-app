@@ -103,22 +103,22 @@ class OptionsController extends BaseController {
 	 */
 	public function update($page_id, $question_id, $id)
 	{
-		return 'Tries to update';
-		// $input = array_except(Input::all(), '_method');
-		// $validation = Validator::make($input, Option::$rules);
+		$input = array_except(Input::all(), '_method');
+		$input['question_id'] = $question_id;
+		$validation = Validator::make($input, Option::$rules);
 
-		// if ($validation->passes())
-		// {
-		// 	$option = $this->option->find($id);
-		// 	$option->update($input);
+		if ($validation->passes())
+		{
+			$option = $this->option->find($id);
+			$option->update($input);
 
-		// 	return Redirect::route('pages.edit', $page_id);
-		// }
+			return Redirect::route('pages.edit', $page_id);
+		}
 
-		// return Redirect::route('options.edit', $id)
-		// 	->withInput()
-		// 	->withErrors($validation)
-		// 	->with('message', 'There were validation errors.');
+		return Redirect::route('pages.questions.options.edit', [$page_id, $question_id, $id])
+			->withInput()
+			->withErrors($validation)
+			->with('message', 'There were validation errors.');
 	}
 
 	/**

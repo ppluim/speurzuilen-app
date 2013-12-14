@@ -1,7 +1,7 @@
 @if($isModel)
-    {{ Form::model($question, [
+    {{ Form::model($option, [
         'method' => 'PATCH', 
-        'route' => ['pages.questions.options.store', 'pages'=>$page->id, 'questions'=>$question->id],
+        'route' => ['pages.questions.options.update', $page->id, $question->id, $option->id],
         'class' => 'form-horizontal',
         'role'  => 'form'
     ]) }}
