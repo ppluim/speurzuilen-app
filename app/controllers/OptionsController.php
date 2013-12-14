@@ -33,7 +33,9 @@ class OptionsController extends BaseController {
 	 */
 	public function create($page_id, $question_id)
 	{
-		return View::make('options.create', compact('page_id', 'question_id'));
+		$page = Page::find($page_id);
+		$question = Question::find($question_id);
+		return View::make('options.create', compact('page', 'question'));
 	}
 
 	/**

@@ -2,13 +2,13 @@
 
 @section('main')
 
-<h1>Create Option</h1>
+<h1>Create Option for <span>question</span> {{ $question->title }} on <span>page</span> {{ $page->title }}</h1>
 
 {{ Form::open(array(
     'route' => [
         'pages.questions.options.store', 
-        'pages'=>$page_id, 
-        'questions'=>$question_id
+        'pages'=>$page->id, 
+        'questions'=>$question->id
     ],
     'class' => 'form-horizontal',
     'role'  => 'form'
