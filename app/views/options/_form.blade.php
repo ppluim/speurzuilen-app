@@ -1,34 +1,17 @@
 @if($isModel)
-    {{ Form::model(
-        $question, 
-        [
-            'method' => 'PATCH', 
-            'route' => 
-            [
-                'pages.questions.options.store', 
-                'pages'=>$page->id, 
-                'questions'=>$question->id
-            ],
-            'class' => 'form-horizontal',
-            'role'  => 'form'
-        ]
-    ) }}
+    {{ Form::model($question, [
+        'method' => 'PATCH', 
+        'route' => ['pages.questions.options.store', 'pages'=>$page->id, 'questions'=>$question->id],
+        'class' => 'form-horizontal',
+        'role'  => 'form'
+    ]) }}
 @else
-    {{ Form::open(
-        [
-            'route' => 
-            [
-                'pages.questions.options.store', 
-                'pages'=>$page->id, 
-                'questions'=>$question->id
-            ],
-            'class' => 'form-horizontal',
-            'role'  => 'form'
-        ]
-    ) }}
+    {{ Form::open([
+        'route' => ['pages.questions.options.store', 'pages'=>$page->id, 'questions'=>$question->id],
+        'class' => 'form-horizontal',
+        'role'  => 'form'
+    ]) }}
 @endif
-
-
 
 <div class="form-group">
     {{ Form::label('title', 'Titel',  ['class'=>'col-sm-2 control-label']) }}
