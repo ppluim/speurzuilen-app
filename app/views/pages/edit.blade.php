@@ -6,28 +6,10 @@
 
 @include('partials.pages_errors')
 
-{{ Form::model($page, array('method' => 'PATCH', 'route' => array('pages.update', $page->id))) }}
-	<ul>
-        
-        @include('partials.pages_form')
+<div class="well">
+	@include('pages._form', ['submitText'=>'update page', 'hasCancel'=>true, 'isModel'=>true])
+</div>
 
-		<li>
-			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-			{{ link_to_route('pages.show', 'Cancel', $page->id, array('class' => 'btn')) }}
-		</li>
-	</ul>
-{{ Form::close() }}
-
-@if ($errors->any())
-	<ul>
-		{{ implode('', $errors->all('<li class="error">:message</li>')) }}
-	</ul>
-@endif
-
-
-{{ Form::open(['route' => ['pages.questions.store',$page->id], 'class' => 'form-horizontal','role'=>'form'])}}
-
-{{ Form::close() }}
 <hr />
 
 <h2>Questions</h2>

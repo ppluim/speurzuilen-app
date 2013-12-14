@@ -7,16 +7,7 @@
 @include('partials.pages_errors')
 
 <div class="well">
-{{ Form::open(array('route' => 'pages.store')) }}
-	<ul>
-        
-        @include('partials.pages_form')
-
-		<li>
-			{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
-		</li>
-	</ul>
-{{ Form::close() }}
+	@include('pages._form', ['submitText'=>'create page', 'hasCancel'=>false, 'isModel'=>false])
 </div>
 
 @stop
