@@ -1,6 +1,6 @@
 guard :coffeescript, :input => "app/assets/coffee", :output => "public/js"
 
-# guard :concat, :type => "css", :files => %w[app bootstrap\bootstrap], :input_dir => "public/css", :output => "public/css/styles.min"
+guard :concat, :type => "css", :files => %w[app bootstrap\bootstrap font-awesome\font-awesome], :input_dir => "public/css", :output => "public/css/styles.min"
 
 guard :concat, :type => "js", :files => %w[bootstrap], :input_dir => "public/js", :output => "public/js/scripts.min"
 

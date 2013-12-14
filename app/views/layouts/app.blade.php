@@ -3,6 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		
+		{{ stylesheet('bootstrap/bootstrap.css') }}
+		{{ stylesheet('font-awesome/font-awesome.css') }}
 		{{ stylesheet('app.css') }}
 
 	</head>

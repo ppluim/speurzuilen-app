@@ -100,3 +100,4 @@ App::after(function($request, $response)
 });
 
 require app_path().'/filters.php';
+require app_path().'/helpers/helpers.php';
