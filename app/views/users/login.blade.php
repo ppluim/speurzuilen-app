@@ -1,11 +1,15 @@
 @extends('layouts.basic')
 
+@section('head')
+	{{ $bodyClass = "login" }}
+@stop
+
+
 @section('content')
 
-
-	<div class="col-sm-4 col-sm-offset-4">
-		<div class="well login-form">
-			<legend>Please Login</legend>
+	<div class="flexbox flexbox--parent">
+		<div class="flexbox__child well login-form">
+			<legend>Sesam open U</legend>
 			{{ Form::open(array('url' => 'login')) }}
 			
 			@if($errors->any())
@@ -15,15 +19,14 @@
 			</div>
 			@endif
 			
-		
-				{{ Form::text('email', '', ['placeholder' => 'Email', 'class'=>'form-control']) }}<br>
-				{{ Form::password('password', ['placeholder' => 'Password', 'class'=>'form-control']) }}<br>
-				{{ Form::submit('Login', array('class' => 'btn btn-lrg btn-success')) }}
+			{{ Form::text('email', '', ['placeholder' => 'Email', 'class'=>'form-control']) }}<br>
+			{{ Form::password('password', ['placeholder' => 'Password', 'class'=>'form-control']) }}<br>
+			
+			{{ Form::submit('Inloggen', array('class' => 'btn btn-lrg btn-primary')) }}
 	
 	
 			{{ Form::close() }}
 
 		</div>
 	</div>
-
 @stop

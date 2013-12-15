@@ -29,27 +29,27 @@
 
 <div class="form-group">
   {{ Form::label('color', 'Color',  ['class'=>'col-sm-2 control-label']) }}
-  <div class="col-sm-6">
+  <div class="col-sm-9">
       {{ Form::select('color', Page::$colors, ['class'=>'form-control']) }}            
   </div>
 </div>
 
 <div class="form-group">
   {{ Form::label('wander_main_text', 'Wandeltocht tekst',  ['class'=>'col-sm-2 control-label']) }}
-  <div class="col-sm-6">
+  <div class="col-sm-9">
       {{ Form::textarea('wander_main_text', null, ['id'=>'redactor_content1', 'class'=>'redactor form-control']) }}            
   </div>
 </div>
 
 <div class="form-group">
   {{ Form::label('wander_tour_text', 'Tour tekst',  ['class'=>'col-sm-2 control-label']) }}
-  <div class="col-sm-6">
+  <div class="col-sm-9">
       {{ Form::textarea('wander_tour_text', null, ['id'=>'redactor_content2', 'class'=>'redactor form-control']) }}            
   </div>
 </div>
 
-<div class="form-group">
-  <div class="col-sm-offset-2 col-sm-6">
+<div class="form-group last-in-the-box">
+  <div class="col-sm-offset-2 col-sm-9">
 		{{ Form::submit( $submitText, array('class' => 'btn btn-info')) }}
 		@if($hasCancel)
 			{{ link_to_route('pages.show', 'Cancel', $page->id, array('class' => 'btn')) }}

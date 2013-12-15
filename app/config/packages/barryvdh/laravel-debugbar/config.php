@@ -11,7 +11,7 @@ return array(
   | Debugbar is enabled by default, when debug is set to true in app.php.
   |
   */
-  'enabled' => \Config::get('app.debug'),
+  // 'enabled' => \Config::get('app.debug'),
 
   /*
    |--------------------------------------------------------------------------
@@ -105,7 +105,7 @@ return array(
   | in your template yourself. See http://phpdebugbar.com/docs/rendering.html
   |
   */
-  'inject' => true,
+  'inject' => false,
 
 
 );

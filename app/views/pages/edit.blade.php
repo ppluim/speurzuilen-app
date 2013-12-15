@@ -10,8 +10,6 @@
 	@include('pages._form', ['submitText'=>'update page', 'hasCancel'=>true, 'isModel'=>true])
 </div>
 
-<hr />
-
 <h2>Quizvraag</h2>
 @if ($page->questions->count())
 		@foreach ($page->questions as $question)
@@ -25,7 +23,7 @@
 		
 		<h3>Options</h3>
 		<p>{{ link_to_route('pages.questions.options.create', 'Add option', [$page->id, $question->page_id], ['class'=>'btn btn-default']) }}</p>
-p		<table class="table table-striped table-bordered">
+		<table class="table table-striped table-bordered">
 			<thead>
 				<tr>
 				</tr>

@@ -11,11 +11,9 @@
 		
 		{{ HTML::script('js/jquery.min.js') }}
 </head>
-<body>
+<body class={{ $bodyClass }}>
 
-<div class="container">
 	@yield('content')
-</div>
 
 {{ HTML::script('js/jquery.min.js') }}
 {{ HTML::script('js/bootstrap.min.js') }}

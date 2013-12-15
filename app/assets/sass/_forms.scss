@@ -1,0 +1,20 @@
+.login {
+	background-color: $gray-dark;
+	
+	.container{
+		height:100%;
+	}
+}
+
+.login-form { 
+	
+	legend {
+		border-bottom: none;
+	}
+	margin-top: 100px;
+	@include box-shadow(0px 2px 6px 0px  darken($gray-dark, 5%));
+}
+
+.form-control {
+	margin-bottom: 0;
+}

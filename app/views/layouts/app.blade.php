@@ -3,9 +3,6 @@
 	<head>
 		<meta charset="utf-8">
 
-		{{ google_webfont('Open+Sans') }}
-		{{ google_webfont('Amaranth') }}
-
 		{{ stylesheet('bootstrap/bootstrap.css') }}
 		{{ stylesheet('redactor/redactor.css') }}
 		{{ stylesheet('font-awesome/font-awesome.css') }}
@@ -16,7 +13,7 @@
 		@yield('head_script')
 		@yield('head')
 	</head>
-	<body class={{ $bodyClass="dark"}}>
+	<body class={{ $bodyClass="app"}}>
 		<header class="main-header">
 			
 			@if(Auth::check()) 
