@@ -7,7 +7,7 @@
 @include('partials.pages_errors')
 
 <div class="well">
-	@include('pages._form', ['submitText'=>'update page', 'hasCancel'=>true, 'isModel'=>true])
+	@include('pages._form', ['submitText'=>'Update', 'hasCancel'=>true, 'isModel'=>true])
 </div>
 
 <h2>Quizvraag</h2>
@@ -21,7 +21,7 @@
 				<h4>{{ $question->title }}</h4>
 			</div>
 		
-		<h3>Options</h3>
+		<h3>Opties</h3>
 		<p>{{ link_to_route('pages.questions.options.create', 'Add option', [$page->id, $question->page_id], ['class'=>'btn btn-default']) }}</p>
 		<table class="table table-striped table-bordered">
 			<thead>
@@ -43,7 +43,7 @@
 
 	@endforeach
 @else
-	There are no questions
+	<p>{{ link_to_route('pages.questions.create', 'Voeg een quizvraag toe', $page->id, ['class'=>'btn btn-default']) }}</p>
 @endif
 
 @stop
